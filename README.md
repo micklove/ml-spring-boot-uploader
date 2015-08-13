@@ -1,6 +1,6 @@
 # ml-spring-boot-uploader
 
-Simple spring boot upload / download example
+Simple spring boot file upload / download example
 
 Uses Tika Library to show file details...
 
