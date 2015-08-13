@@ -1,0 +1,4 @@
+multipart:
+  maxFileSize: 128KB
+  maxRequestSize: 128KB
+

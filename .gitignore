@@ -1,0 +1,13 @@
+target/
+**/**/build
+.gradle/
+.idea/
+*.iml
+checkstyle.cache
+repo/
+out/
+producer-service.i*
+build/classes
+**/**/*.log
+**/**/node_modules
+**/**/reports
