@@ -2,3 +2,8 @@ multipart:
   maxFileSize: 128KB
   maxRequestSize: 128KB
 
+
+aws:
+  instance:
+    document:
+      address: "http://169.254.169.254/latest/dynamic/instance-identity/document"

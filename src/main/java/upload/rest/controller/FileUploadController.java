@@ -72,7 +72,16 @@ public class FileUploadController {
     }
 
 
-    //See http://stackoverflow.com/a/20743941 for reason behind {filename:.+}
+    /**
+     * See http://stackoverflow.com/a/20743941 for reason behind {filename:.+}
+     *   basically, any dot, including the last one will be considered as part of your parameter :
+     *
+     *  /somepath/param will result in a param with value param
+     *  /somepath/param.json will result in a param with value param.json
+     *  /somepath/param.xml will result in a param with value param.xml
+     *  /somepath/param.anything will result in a param with value param.anything
+     *  /somepath/param.value.json will result in a param with value param.value.json
+     */
     @RequestMapping(value = "/download/{filename:.+}", method = RequestMethod.GET)
     public ResponseEntity<InputStreamResource> getFile(@PathVariable("filename") final String fileName) throws IOException {
         ClassPathResource fileToReturn = new ClassPathResource(fileName);
@@ -98,7 +107,6 @@ public class FileUploadController {
         String mediaTypeString = mediaType.toString();
         MimeType mimeType = config.getMimeRepository().forName(mediaTypeString);
         String details = "type [" + mediaTypeString + "] extension [" + mimeType.getExtension() + "]";
-
         return details;
     }
 
