@@ -39,3 +39,11 @@ dependencies {
 task wrapper(type: Wrapper) {
     gradleVersion = '2.6'
 }
+
+//hack to fix intellij / gradle issue - test resources not copied to classes/test folder
+// from http://stackoverflow.com/a/26033752
+task copyTestResources(type: Copy) {
+    from "${projectDir}/src/test/resources"
+    into "${buildDir}/classes/test"
+}
+processTestResources.dependsOn copyTestResources
